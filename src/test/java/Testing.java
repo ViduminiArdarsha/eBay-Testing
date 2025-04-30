@@ -1,5 +1,4 @@
-import org.example.Electronics;
-import org.example.HomePage;
+import org.example.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
@@ -9,6 +8,8 @@ import java.util.concurrent.TimeUnit;
 public class Testing{
     WebDriver driver;
     String url="https://www.ebay.com/";
+
+
 
     @BeforeClass
     public void beforeMethod() {
@@ -30,11 +31,30 @@ public class Testing{
         HomePage homePage=new HomePage(driver);
         Electronics electronics=new Electronics(driver);
         homePage.clickElectronics();
-        electronics.goToCellPhones();
+        electronics.clickCellPhonesAndAccessories();
+        electronics.selectSize();
+        electronics.selectProduct();
+
+    }
+    @Test
+    public void productDetailsAndCartVerification(){
+        ProductDetails productDetails=new ProductDetails(driver);
+        CartPage cartPage=new CartPage(driver);
+
+        productDetails.getNameAndPrice();
+
+        //cartPage.selectCart();
+    }
+    @Test
+    public void checkoutProcess(){
+        CheckoutPage checkoutPage=new CheckoutPage(driver);
+        CartPage cartPage=new CartPage(driver);
+
+        cartPage.addToCart();
+        checkoutPage.getTotal();
+        checkoutPage.checkout();
     }
 
-    @Test
-    public void
     @AfterClass
     public void afterMethod() {
         driver.quit();

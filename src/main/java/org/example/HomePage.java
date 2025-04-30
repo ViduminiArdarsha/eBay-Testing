@@ -21,12 +21,9 @@ public class HomePage {
     public void verifyUrl(String url){
         String actualUrl = driver.getCurrentUrl();
         if (actualUrl.equals(url)) {
-            System.out.println("Verification Successful - The correct Url is opened.");
+            System.out.println("Verification Successful");
         } else {
-            System.out.println("Verification Failed - An incorrect Url is opened.");
-
-            System.out.println("Actual URL is : " + actualUrl);
-            System.out.println("Expected URL is : " + url);
+            System.out.println("Verification Failed");
         }
     }
 
