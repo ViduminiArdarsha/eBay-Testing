@@ -2,7 +2,9 @@ package org.example;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
+
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -12,6 +14,7 @@ import java.time.Duration;
 public class CheckoutPage {
     WebDriver driver;
     WebDriverWait wait;
+
 
     private final By firstNamePath = By.name("firstName");
     private final By lastNamePath = By.name("lastName");
@@ -24,6 +27,8 @@ public class CheckoutPage {
     private final By emailConfirmPath = By.name("emailConfirm");
     private final By phoneNumberPath = By.name("phoneNumber");
 
+
+  
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
         wait = new WebDriverWait(driver, Duration.ofSeconds(20));
@@ -58,5 +63,7 @@ public class CheckoutPage {
 
     }
 
+
+  
 
 }

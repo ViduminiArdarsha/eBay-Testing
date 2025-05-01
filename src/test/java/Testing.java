@@ -9,11 +9,13 @@ public class Testing{
     WebDriver driver;
     String url="https://www.ebay.com/";
 
+
     @DataProvider(name="checkoutData")
     public static Object[][] checkoutData() {
         return new Object[][]{{"Nimal", "Silva","Galle Rd, Colombo","Perera Rd, Colombo 10","Colombo","Western"
                 ,"100000","nimalsilva@gmail.com","nimalsilva@gmail.com","0112589634"}};
     }
+
 
 
     @BeforeClass
@@ -63,7 +65,15 @@ public class Testing{
 
         checkoutPage.getTotal();
         checkoutPage.checkout();
+
     }
+    @Test
+    public void productDetailsAndCartVerification(){
+        ProductDetails productDetails=new ProductDetails(driver);
+        CartPage cartPage=new CartPage(driver);
+
+        productDetails.getNameAndPrice();
+
 
 
     @Test(priority = 5,dataProvider = "checkoutData")
@@ -74,6 +84,19 @@ public class Testing{
         checkoutPage.fillCheckoutForm(firstName,lastName,address1,address2,city,stateOrProvince, postalCode,email,emailConfirm, phoneNumber);
     }
 
+
+
+        //cartPage.selectCart();
+    }
+    @Test
+    public void checkoutProcess(){
+        CheckoutPage checkoutPage=new CheckoutPage(driver);
+        CartPage cartPage=new CartPage(driver);
+
+        cartPage.addToCart();
+        checkoutPage.getTotal();
+        checkoutPage.checkout();
+    }
 
     @AfterClass
     public void afterMethod() {
