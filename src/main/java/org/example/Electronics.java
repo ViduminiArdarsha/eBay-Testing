@@ -28,13 +28,13 @@ public class Electronics {
 
     public void clickCellPhonesAndAccessories() {
         driver.findElement(By.xpath("//*[@class=\"brw-region brw-region--left\"]/section/div/ul/li[2]/span/a")).click();
-        driver.findElement(By.xpath("/html/body/div[2]/div[2]/section[2]/section/div/ul/li/section/div/ul/li[4]/span/a")).click();
+        driver.findElement(By.xpath("//section//ul/li[4]//a")).click();
 
     }
 
     public void selectSize() {
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"brw-refinement-root\"]/div/ul/li[1]/button"))).click();
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[3]/div[2]/section[3]/div[1]/div/div[2]/div[3]/div/div[8]/button"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[3]//div[3]//div/div[8]//button"))).click();
 
         wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//*[@id=\"seo-accordion__sect-7\"]/div/fieldset/div/ul/li[1]/div/span"))).click();
 
@@ -44,6 +44,6 @@ public class Electronics {
     }
 
     public void selectProduct() {
-        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("/html/body/div[2]/div[2]/section[3]/section[3]/ul/li[1]/div/div/div[2]/div[1]/div[1]/span/a"))).click();
+        wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//section[3]/section[3]//ul/li[1]//span/a"))).click();
     }
 }
